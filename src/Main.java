@@ -293,12 +293,13 @@ public class Main {
                     break;
                 }
 
+
                 case "7": {
                     System.out.println(
                         "\n--- Low-Stock Products ---"
                     );
 
-                    boolean foundLowStock = false;
+                    int lowStockCount = 0;
 
                     for (Product product : products) {
                         if (product.isLowStock()) {
@@ -307,15 +308,22 @@ public class Main {
                                 + " | Quantity: "
                                 + product.getQuantity()
                             );
-                            foundLowStock = true;
+
+                            lowStockCount++;
                         }
                     }
 
-                    if (!foundLowStock) {
+                    if (lowStockCount == 0) {
                         System.out.println(
                             "No low-stock products found."
                         );
+                    } else {
+                        System.out.println(
+                            "Products needing restocking: "
+                            + lowStockCount
+                        );
                     }
+
                     break;
                 }
 
