@@ -69,10 +69,8 @@ public class Main {
                         input, "Product price (R): "
                     );
 
-                    if (price < 0) {
-                        System.out.println(
-                            "Price cannot be negative."
-                        );
+                    if (price <= 0) {
+                        System.out.println("Price must be greater than zero.");
                         break;
                     }
 
