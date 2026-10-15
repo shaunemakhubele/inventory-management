@@ -37,8 +37,16 @@ public class Main {
             switch (choice) {
 
                 case "1": {
+                   
                     System.out.print("Product name: ");
-                    String name = input.nextLine();
+                    String name = input.nextLine().trim();
+
+                    if (name.contains(",")) {
+                        System.out.println(
+                            "Product names cannot contain commas."
+                        );
+                        break;
+                    }
 
                     if (name.isBlank()) {
                         System.out.println(
