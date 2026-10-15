@@ -347,6 +347,13 @@ public class Main {
                     System.out.printf(
                         "Total inventory value: R%.2f%n", totalValue
                     );
+                    
+                    if (totalValue >= 10000) {
+                        System.out.println(
+                            "WARNING: Inventory value has reached R10,000!"
+                        );
+                    }
+
                     break;
                 }
 
