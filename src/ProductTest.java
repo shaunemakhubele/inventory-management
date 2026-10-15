@@ -92,5 +92,14 @@ public class ProductTest {
         System.out.println(
             "\nAll " + testsPassed + " tests passed!"
         );
+
+        
+        try {
+            new Product("   ", 10.0, 5);
+            System.out.println("FAIL: Blank product name accepted");
+        } catch (IllegalArgumentException e) {
+            System.out.println("PASS: Blank product name rejected");
+        }
+
     }
 }
