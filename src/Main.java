@@ -47,6 +47,24 @@ public class Main {
                         break;
                     }
 
+                    
+                    boolean duplicate = false;
+
+                    for (Product product : products) {
+                        if (product.getName().equalsIgnoreCase(name.trim())) {
+                            duplicate = true;
+                            break;
+                        }
+                    }
+
+                    if (duplicate) {
+                        System.out.println(
+                            "A product with this name already exists."
+                        );
+                        break;
+                    }
+
+
                     double price = readDouble(
                         input, "Product price (R): "
                     );
