@@ -270,13 +270,25 @@ public class Main {
                         break;
                     }
 
-                    Product removed =
-                        products.remove(removeNumber - 1);
-
-                    System.out.println(
-                        removed.getName()
-                        + " was removed successfully."
+                   
+                    System.out.print(
+                        "Are you sure you want to remove "
+                        + products.get(removeNumber - 1).getName()
+                        + "? (yes/no): "
                     );
+
+                    String confirmation = input.nextLine().trim();
+
+                    if (confirmation.equalsIgnoreCase("yes")) {
+                        Product removed = products.remove(removeNumber - 1);
+
+                        System.out.println(
+                            removed.getName() + " was removed successfully."
+                        );
+                    } else {
+                        System.out.println("Removal cancelled.");
+                    }
+
                     break;
                 }
 
