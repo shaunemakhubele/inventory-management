@@ -29,7 +29,8 @@ public class Main {
             System.out.println("5. Calculate total inventory value");
             System.out.println("6. Remove product");
             System.out.println("7. View low-stock products");
-            System.out.println("8. Exit");
+            System.out.println("8. View inventory summary");
+            System.out.println("9. Exit");
             System.out.print("Choose an option: ");
 
             String choice = input.nextLine();
@@ -318,7 +319,31 @@ public class Main {
                     break;
                 }
 
-                case "8":
+
+                case "8": {
+                    int totalUnits = 0;
+                    double totalValue = 0;
+
+                    for (Product product : products) {
+                        totalUnits += product.getQuantity();
+                        totalValue += product.getStockValue();
+                    }
+
+                    System.out.println("\n--- Inventory Summary ---");
+                    System.out.println(
+                        "Different products: " + products.size()
+                    );
+                    System.out.println(
+                        "Total units in stock: " + totalUnits
+                    );
+                    System.out.printf(
+                        "Total inventory value: R%.2f%n", totalValue
+                    );
+                    break;
+                }
+
+
+                case "9":
                     saveProducts(products);
                     running = false;
                     System.out.println("Goodbye!");
@@ -326,7 +351,7 @@ public class Main {
 
                 default:
                     System.out.println(
-                        "Invalid option. Please choose 1 to 8."
+                        "Invalid option. Please choose 1 to 9."
                     );
             }
         }
